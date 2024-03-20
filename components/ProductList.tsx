@@ -11,7 +11,7 @@ const ProductList = ({product}:ProductListType) => {
   return (
     <Link href={`/menu/${product.id}`} asChild>
     <Pressable style={styles.container}>
-      <Image source={{uri: product.image}} style={styles.image}/>
+      <Image source={{uri: product.image || 'Image doesnt exist'}} style={styles.image}/>
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.price}>${product.price}</Text>
     </Pressable>
