@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import React, { useState } from 'react'
-import { Stack, useLocalSearchParams } from 'expo-router'
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router'
 import products from '@/assets/data/products'
 import { useCart } from '@/providers/CartProvider'
 import { PizzaSize } from '@/types'
@@ -17,10 +17,12 @@ const ProductDetails = () => {
   }
 
   const sizes: PizzaSize[] = ['S', 'M', 'L', 'XL'];
+  const router=useRouter();
 
   const addToCart = () => {
     if (!selectedState) return;
     addItems(product, selectedState);
+    router.push('/cart')
   };
 
   let updated_price: number;
