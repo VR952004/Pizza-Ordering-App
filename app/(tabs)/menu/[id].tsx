@@ -3,19 +3,23 @@ import React from 'react'
 import { Stack, useLocalSearchParams } from 'expo-router'
 import products from '@/assets/data/products'
 import { useState } from 'react'
+import { useCart } from '@/providers/CartProvider'
+import { PizzaSize } from '@/types'
 
 const ProductDetails = () => {
-  const [selectedState,setSelectedState] = useState('M')
+  const [selectedState,setSelectedState] = useState<PizzaSize>('M')
   const sizes=['S','M','L','XL'];
   const {id}=useLocalSearchParams();
   const product=products.find((p)=>p.id.toString()==id);
+  const {addItems}=useCart();
 
     if(!product){
       return <Text >Product not found.</Text>
     }
   
   const addToCart=()=>{
-    console.warn("Added to cart. Size:",selectedState);
+    if(!selectedState){return;}
+    addItems(product,selectedState)
   }
 
   let updated_price;
