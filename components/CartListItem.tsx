@@ -24,7 +24,7 @@ const CartListItem = ({ cartItem }: CartListItemProps) => {
       <View style={{ flex: 1 }}>
         <Text style={styles.title}>{cartItem.product.name}</Text>
         <View style={styles.subtitleContainer}>
-          <Text style={styles.price}>${cartItem.product.price.toFixed(2)}</Text>
+          <Text style={styles.price}>${cartItem.price.toFixed(2)}</Text>
           <Text>Size: {cartItem.size}</Text>
         </View>
       </View>
@@ -32,7 +32,7 @@ const CartListItem = ({ cartItem }: CartListItemProps) => {
         <FontAwesome
           onPress={() => updateQuantity(cartItem.id, -1)}
           name="minus"
-          color="gray"
+          color="#8d99ae"
           style={{ padding: 5 }}
         />
 
@@ -40,7 +40,7 @@ const CartListItem = ({ cartItem }: CartListItemProps) => {
         <FontAwesome
           onPress={() => updateQuantity(cartItem.id, 1)}
           name="plus"
-          color="gray"
+          color="#8d99ae"
           style={{ padding: 5 }}
         />
       </View>
@@ -50,7 +50,7 @@ const CartListItem = ({ cartItem }: CartListItemProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#edf2f4',
     borderRadius: 10,
     padding: 5,
     flex: 1,
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   title: {
+    color:'#2b2d42',
     fontWeight: '500',
     fontSize: 16,
     marginBottom: 5,
@@ -79,11 +80,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   quantity: {
+    color:'#2b2d42',
     fontWeight: '500',
     fontSize: 18,
   },
   price: {
-    color: Colors.light.tint,
+    color: '#ef233c',
     fontWeight: 'bold',
   },
 });
